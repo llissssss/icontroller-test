@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'form_table_layout.html.twig' %}
+
+{% block body %}
+    <h3>Enter the year you want to know the dates for:</h3>
+
+    {{ form(form) }}
+
+    {% if result %}
+        <h3>Deadlines are:</h3>
+        {{ result }}
+    {% endif %}
+{% endblock %}
