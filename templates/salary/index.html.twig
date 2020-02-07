@@ -7,8 +7,56 @@
 
     {{ form(form) }}
 
-    {% if result %}
-        <h3>Deadlines are:</h3>
-        {{ result }}
+    {% if error %}
+        <h4>{{ error }}</h4>
     {% endif %}
+
+    {% if result %}
+        <h3>Due dates for {{ year }} are:</h3>
+
+        <div class="page">
+            <div class="row header">
+                <div class="column">Month</div>
+                <div class="column">Base Salary Due Date</div>
+                <div class="column">Bonus Due Date</div>
+
+            </div>
+            {% for month in result %}
+                <div class="row">
+                    <div class="column">{{ month.getMonthAsString() }}</div>
+                    <div class="column">{{ month.getBaseSalaryDueDateAsString() }}</div>
+                    <div class="column">{{ month.getBonusDueDateAsString() }}</div>
+                </div>
+            {% endfor %}
+        </div>
+
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    <!-- Ths should be in a stylesheet for reusability -->
+    <style>
+        .page {
+            margin: 15px;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .row.header {
+            font-weight: bold;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
 {% endblock %}
