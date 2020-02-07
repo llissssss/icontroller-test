@@ -1,3 +1,7 @@
 index:
     path: /
     controller: App\Controller\SalaryController::index
+
+download_csv:
+    path: /download-csv
+    controller: App\Controller\SalaryController::download_csv

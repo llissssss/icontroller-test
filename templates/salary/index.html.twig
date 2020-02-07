@@ -13,7 +13,9 @@
 
     {% if result %}
         <h3>Due dates for {{ year }} are:</h3>
-
+        <div>
+            <a href="{{ download_url }}" target="_blank"> Download as CSV</a>
+        </div>
         <div class="page">
             <div class="row header">
                 <div class="column">Month</div>
